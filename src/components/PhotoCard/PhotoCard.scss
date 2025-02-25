@@ -1,0 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.photo-card {
+  width: 20rem;
+  height: 18rem;
+  background-color: $brand-secondary-background;
+  border-radius: 0.5rem;
+
+  @include tablet-and-above {
+    border-radius: 0.75rem;
+  }
+
+  &__img {
+    width: 20rem;
+    height: 15rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+}

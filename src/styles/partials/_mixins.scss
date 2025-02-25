@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin tablet-and-above {
   @media (min-width: $tablet-breakpoint) {
     @content;

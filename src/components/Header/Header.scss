@@ -1,0 +1,81 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  padding: 0 1rem;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 40px;
+    line-height: 32px;
+    color: $brand-primary-text;
+    font-weight: 400;
+  }
+
+  &__filter-btn {
+    font-family: Outfit;
+    font-size: 16px;
+    color: $brand-primary-accent;
+    padding: 0.5rem 1rem;
+    border: 2px solid $brand-primary-accent;
+    border-radius: 20px;
+    background-color: $brand-primary-background;
+    cursor: pointer;
+
+    @include tablet-and-above {
+      padding: 0.6rem 1.375rem;
+    }
+
+    &--active {
+      background-color: $brand-primary-accent;
+      color: $brand-secondary-text;
+    }
+  }
+
+  &__filter-btn-text {
+    padding-left: 0.5rem;
+  }
+
+  &__hero-text-wrapper {
+    min-width: 19rem;
+
+    @include tablet-and-above {
+      margin: 3rem 0;
+    }
+
+    @include desktop {
+      width: 50vw;
+    }
+  }
+
+  &__hero-text {
+    font-size: 16px;
+    font-family: Outfit;
+    font-weight: 300;
+
+    @include tablet-and-above {
+      font-size: 24px;
+    }
+  }
+
+  &__hero-text-main {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 46px;
+
+    @include tablet-and-above {
+      font-size: 52px;
+      line-height: 66px;
+      margin: 1.5rem 0;
+    }
+
+    &--highlight {
+      font-style: italic;
+    }
+  }
+}

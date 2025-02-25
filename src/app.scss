@@ -1,9 +1,9 @@
-@use "./styles/resets";
+@use "./styles/partials/resets";
 @use "./styles/partials/mixins" as *;
-@use "./styles/partials/typography" as *;
+@use "./styles/partials/typography";
 @use "./styles/partials/variables" as *;
 
-h1 {
-  font-family: Outfit;
-  color: $brand-primary-accent;
+body {
+  font-family: "Newsreader";
+  background-color: $brand-primary-background;
 }

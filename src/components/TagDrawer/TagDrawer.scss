@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.tag-drawer {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: $brand-secondary-background;
+
+  &__title {
+    font-family: Outfit;
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
+
+  & .tag {
+    color: $brand-primary-accent;
+    border-color: $brand-primary-accent;
+    font-size: 1rem;
+    margin: 0.3rem;
+    border-radius: 0.5rem;
+  }
+}

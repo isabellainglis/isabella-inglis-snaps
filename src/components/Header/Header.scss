@@ -2,6 +2,9 @@
 @use "../../styles/partials/mixins" as *;
 
 .header {
+  margin: 2rem 0;
+  padding: 0 1rem;
+
   &__nav {
     display: flex;
     justify-content: space-between;
@@ -13,6 +16,10 @@
     line-height: 32px;
     color: $brand-primary-text;
     font-weight: 400;
+
+    @include tablet-and-above {
+      font-size: 46px;
+    }
   }
 
   &__filter-btn {
@@ -48,32 +55,6 @@
 
     @include desktop {
       width: 50vw;
-    }
-  }
-
-  &__hero-text {
-    font-size: 16px;
-    font-family: Outfit;
-    font-weight: 300;
-
-    @include tablet-and-above {
-      font-size: 24px;
-    }
-  }
-
-  &__hero-text-main {
-    font-size: 32px;
-    font-weight: 300;
-    line-height: 46px;
-
-    @include tablet-and-above {
-      font-size: 52px;
-      line-height: 66px;
-      margin: 1.5rem 0;
-    }
-
-    &--highlight {
-      font-style: italic;
     }
   }
 }

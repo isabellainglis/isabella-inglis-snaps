@@ -1,0 +1,32 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+  padding: 0.5rem 1rem 1rem;
+
+  &__text {
+    font-size: 16px;
+    font-family: Outfit;
+    font-weight: 300;
+
+    @include tablet-and-above {
+      font-size: 24px;
+    }
+  }
+
+  &__text-main {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 46px;
+
+    @include tablet-and-above {
+      font-size: 52px;
+      line-height: 66px;
+      margin: 1.5rem 0;
+    }
+
+    &--highlight {
+      font-style: italic;
+    }
+  }
+}

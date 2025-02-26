@@ -3,12 +3,19 @@
 
 .photo-card {
   width: 20rem;
-  height: 18rem;
-  background-color: $brand-secondary-background;
+  border: $brand-secondary-border 1px solid;
   border-radius: 0.5rem;
+  margin-bottom: 1rem;
 
   @include tablet-and-above {
     border-radius: 0.75rem;
+    margin: 0;
+  }
+
+  &__img-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
   }
 
   &__img {
@@ -16,5 +23,38 @@
     height: 15rem;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+
+    @include tablet-and-above {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+    }
+  }
+
+  &__photographer {
+    font-family: Outfit;
+    font-size: 0.75rem;
+    text-align: right;
+    background-color: $brand-secondary-background;
+    position: absolute;
+    border-top-left-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: $brand-secondary-border 1px solid;
+
+    @include tablet-and-above {
+      border-top-left-radius: 0.75rem;
+    }
+  }
+
+  &__footer {
+    background-color: $brand-secondary-background;
+    padding: 0.375rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    @include tablet-and-above {
+      padding: 1rem;
+      border-bottom-left-radius: 0.75rem;
+      border-bottom-right-radius: 0.75rem;
+    }
   }
 }

@@ -8,13 +8,20 @@ import TagDrawer from "./components/TagDrawer/TagDrawer";
 import Hero from "./components/Hero/Hero";
 
 export default function App() {
+  const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header
+        tagDrawerOpen={tagDrawerOpen}
+        setTagDrawerOpen={setTagDrawerOpen}
+      />
       <main className="main-wrapper">
-        <aside className="tag-drawer-container">
-          <TagDrawer tags={Tags} />
-        </aside>
+        {tagDrawerOpen && (
+          <aside className="tag-drawer-container">
+            <TagDrawer tags={Tags} />
+          </aside>
+        )}
         <section className="main-content-container">
           <Hero />
           <Gallery />

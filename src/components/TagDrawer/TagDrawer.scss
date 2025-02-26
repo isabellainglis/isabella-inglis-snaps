@@ -5,11 +5,32 @@
   margin: 1rem 0;
   padding: 1rem;
   background-color: $brand-secondary-background;
+  height: 65vh;
+  min-width: 21rem;
+
+  @include tablet-and-above {
+    padding: 1.5rem 1.5rem;
+    height: 50vh;
+  }
+
+  @include desktop {
+    width: auto;
+    min-width: auto;
+    height: 100%;
+  }
 
   &__title {
     font-family: Outfit;
     font-weight: 400;
     margin-left: 0.5rem;
+
+    @include tablet-and-above {
+      padding-bottom: 1rem;
+    }
+
+    @include desktop {
+      padding-bottom: 2rem;
+    }
   }
 
   & .tag {

@@ -4,8 +4,8 @@ import Photos from "../../data/photos.json";
 
 export default function Gallery() {
   return (
-    <main className="gallery">
+    <section className="gallery">
       <PhotoCard photos={Photos} />
-    </main>
+    </section>
   );
 }

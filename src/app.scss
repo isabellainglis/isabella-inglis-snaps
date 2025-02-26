@@ -8,3 +8,17 @@ body {
   background-color: $brand-primary-background;
   margin: 0;
 }
+
+.main-wrapper {
+  @include desktop {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.main-content-container {
+  @include desktop {
+    min-width: 66rem;
+    padding: 1rem;
+  }
+}

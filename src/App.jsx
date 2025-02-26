@@ -11,9 +11,15 @@ export default function App() {
   return (
     <>
       <Header />
-      <TagDrawer tags={Tags} />
-      <Hero />
-      <Gallery />
+      <main className="main-wrapper">
+        <aside className="tag-drawer-container">
+          <TagDrawer tags={Tags} />
+        </aside>
+        <section className="main-content-container">
+          <Hero />
+          <Gallery />
+        </section>
+      </main>
     </>
   );
 }

@@ -7,6 +7,7 @@ import Tags from "./data/tags.json";
 import Photos from "./data/photos.json";
 import TagDrawer from "./components/TagDrawer/TagDrawer";
 import Hero from "./components/Hero/Hero";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
@@ -44,12 +45,11 @@ export default function App() {
           </aside>
         )}
         <section className="main-content-container">
-          <div className="left-wrapper">
-            <Hero />
-            <Gallery displayedPhotos={filteredPhotos} />
-          </div>
+          <Hero />
+          <Gallery displayedPhotos={filteredPhotos} />
         </section>
       </main>
+      <Footer />
     </>
   );
 }

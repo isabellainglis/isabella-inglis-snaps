@@ -20,13 +20,12 @@ body {
 
 .tag-drawer-container {
   @include desktop {
-    width: 40%;
+    width: 50%;
   }
 }
 
 .main-content-container {
   @include desktop {
-    min-width: 66rem;
     padding: 1rem;
     width: 100%;
     align-self: flex-end;

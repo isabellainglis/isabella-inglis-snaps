@@ -1,8 +1,12 @@
-# React + Vite
+# Snaps
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project guidelines:
+You have been approached by an entrepreneur to build out a prototype for a new photo sharing application called Snaps. The entrepreneur has meetings lined up for funding with several VCs and needs the prototype built within the next three weeks. Snaps’ Creative Director has provided you with a package and mockup of how they envision the final product. There is also a separate team that is currently working on a backend API needed to integrate with the front-end, but for the time being the static function components need to be put together.
 
-Currently, two official plugins are available:
+It will be your job to create a functioning and responsive app prototype from the project designs provided.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+Install my-project with npm
+
+$ npm install

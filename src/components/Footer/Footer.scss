@@ -1,0 +1,126 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+  padding: 5rem 1rem 1rem;
+
+  @include tablet-and-above {
+    height: 75vh;
+  }
+
+  @include desktop {
+    padding: 3rem 1rem;
+    height: 60vh;
+  }
+
+  &__sections-wrapper {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-and-above {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include desktop {
+      width: 85%;
+    }
+  }
+
+  &__title {
+    @include title;
+    padding-bottom: 2rem;
+
+    @include desktop {
+      padding-left: 1rem;
+    }
+  }
+
+  &__lists-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-and-above {
+      flex-direction: row;
+    }
+  }
+
+  &__list {
+    font-family: Outfit;
+    margin-right: 3rem;
+  }
+
+  &__list-item {
+    padding-bottom: 0.5rem;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: flex-start;
+
+    @include tablet-and-above {
+      height: 21.5rem;
+      align-items: flex-end;
+    }
+
+    @include desktop {
+      height: 4rem;
+      margin-left: 5rem;
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    margin: 1.5rem 1.5rem 1rem 0;
+
+    @include tablet-and-above {
+      margin-bottom: 1rem;
+    }
+
+    @include desktop {
+      width: 1.8rem;
+    }
+
+    &--twitter {
+      width: 1.7rem;
+      align-self: flex-end;
+
+      @include tablet-and-above {
+        align-self: flex-end;
+      }
+
+      @include desktop {
+        width: 1.5rem;
+        padding-top: 0.2rem;
+      }
+    }
+  }
+
+  &__watermarks {
+    display: flex;
+
+    @include tablet-and-above {
+    }
+
+    @include desktop {
+      height: 75%;
+      align-items: flex-end;
+    }
+  }
+
+  &__watermark {
+    color: $brand-secondary-border;
+    font-family: Outfit;
+    font-size: 14px;
+    font-weight: 300;
+    padding-right: 1rem;
+  }
+}

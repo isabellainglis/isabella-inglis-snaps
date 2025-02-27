@@ -21,14 +21,7 @@
   }
 
   &__title {
-    font-size: 40px;
-    line-height: 32px;
-    color: $brand-primary-text;
-    font-weight: 400;
-
-    @include tablet-and-above {
-      font-size: 46px;
-    }
+    @include title;
   }
 
   &__filter-btn {
@@ -53,7 +46,7 @@
     }
   }
 
-  &__filter-btn-text {
+  &__filter-btn-icon {
     padding-left: 0.5rem;
   }
 

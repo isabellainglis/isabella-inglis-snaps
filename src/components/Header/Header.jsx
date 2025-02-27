@@ -18,7 +18,7 @@ export default function Header({ tagDrawerOpen, setTagDrawerOpen }) {
         >
           Filters{" "}
           <img
-            className="header__filter-btn-text"
+            className="header__filter-btn-icon"
             src={filterIcon}
             alt="Filters icon"
           />

@@ -36,8 +36,8 @@
   }
 
   &__title {
-    @include title;
     padding-bottom: 2rem;
+    @include title;
 
     @include desktop {
       padding-left: 1rem;

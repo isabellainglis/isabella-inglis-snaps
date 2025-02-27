@@ -12,7 +12,7 @@ export default function Header({ tagDrawerOpen, setTagDrawerOpen }) {
           onClick={() => {
             setTagDrawerOpen(!tagDrawerOpen);
           }}
-          className={`"header__filter-btn" ${
+          className={`header__filter-btn ${
             tagDrawerOpen && "header__filter-btn--active"
           }`}
         >

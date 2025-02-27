@@ -2,10 +2,10 @@ import Tag from "../Tag/Tag";
 import "./PhotoCard.scss";
 import { v4 as uuidv4 } from "uuid";
 
-export default function PhotoCard({ photos }) {
+export default function PhotoCard({ displayedPhotos }) {
   return (
     <>
-      {photos.map((photo) => {
+      {displayedPhotos.map((photo) => {
         return (
           <div className="photo-card" key={photo.id}>
             <div className="photo-card__img-container">

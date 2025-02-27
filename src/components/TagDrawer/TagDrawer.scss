@@ -39,5 +39,15 @@
     font-size: 1rem;
     margin: 0.3rem;
     border-radius: 0.5rem;
+
+    &--active {
+      color: $brand-secondary-text;
+      background-color: $brand-primary-accent;
+    }
+
+    &:hover {
+      color: $brand-secondary-text;
+      background-color: $brand-primary-accent;
+    }
   }
 }

@@ -1,5 +1,14 @@
 import "./Tag.scss";
 
-export default function Tag({ tag }) {
-  return <button className="tag">{tag}</button>;
+export default function Tag({ tag, activeTag, handleTagClick }) {
+  return (
+    <button
+      onClick={() => {
+        handleTagClick(tag);
+      }}
+      className={`tag ${activeTag === tag && "tag--active"}`}
+    >
+      {tag}
+    </button>
+  );
 }

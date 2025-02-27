@@ -13,6 +13,14 @@ body {
   @include desktop {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.tag-drawer-container {
+  @include desktop {
+    width: 40%;
   }
 }
 
@@ -20,5 +28,7 @@ body {
   @include desktop {
     min-width: 66rem;
     padding: 1rem;
+    width: 100%;
+    align-self: flex-end;
   }
 }

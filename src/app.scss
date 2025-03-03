@@ -8,26 +8,3 @@ body {
   background-color: $brand-primary-background;
   margin: 0;
 }
-
-.main-wrapper {
-  @include desktop {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    width: 100%;
-  }
-}
-
-.tag-drawer-container {
-  @include desktop {
-    width: 50%;
-  }
-}
-
-.main-content-container {
-  @include desktop {
-    padding: 1rem;
-    width: 100%;
-    align-self: flex-end;
-  }
-}

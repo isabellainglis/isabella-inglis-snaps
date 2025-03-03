@@ -1,55 +1,24 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
 import "./app.scss";
 import "./styles/partials/_resets.scss";
 import Header from "./components/Header/Header";
-import Gallery from "./components/Gallery/Gallery";
-import Tags from "./data/tags.json";
-import Photos from "./data/photos.json";
-import TagDrawer from "./components/TagDrawer/TagDrawer";
-import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 
 export default function App() {
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
-  const [activeTag, setActiveTag] = useState("");
-  const [displayedPhotos, setDisplayedPhotos] = useState(Photos);
-
-  const handleTagClick = (tag) => {
-    activeTag !== tag ? setActiveTag(tag) : setActiveTag("");
-
-    setDisplayedPhotos(filteredPhotos);
-  };
-
-  const filteredPhotos = Photos.filter((photo) => {
-    if (!activeTag) {
-      return photo;
-    } else {
-      return photo.tags.includes(activeTag);
-    }
-  });
 
   return (
-    <>
+    <BrowserRouter>
       <Header
         tagDrawerOpen={tagDrawerOpen}
         setTagDrawerOpen={setTagDrawerOpen}
       />
-      <main className="main-wrapper">
-        {tagDrawerOpen && (
-          <aside className="tag-drawer-container">
-            <TagDrawer
-              tags={Tags}
-              activeTag={activeTag}
-              handleTagClick={handleTagClick}
-            />
-          </aside>
-        )}
-        <section className="main-content-container">
-          <Hero />
-          <Gallery displayedPhotos={filteredPhotos} />
-        </section>
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage tagDrawerOpen={tagDrawerOpen} />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }

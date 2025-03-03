@@ -5,6 +5,8 @@ import "./app.scss";
 import "./styles/partials/_resets.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import SinglePhotoPage from "./pages/SinglePhotoPage/SinglePhotoPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
@@ -17,6 +19,8 @@ export default function App() {
       />
       <Routes>
         <Route path="/" element={<HomePage tagDrawerOpen={tagDrawerOpen} />} />
+        <Route path="/photo/:id" element={<SinglePhotoPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

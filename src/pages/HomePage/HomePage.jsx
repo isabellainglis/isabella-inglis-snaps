@@ -1,33 +1,47 @@
 import { useState, useEffect } from "react";
 import "./HomePage.scss";
 import Gallery from "../../components/Gallery/Gallery";
-import Tags from "../../data/tags.json";
 import TagDrawer from "../../components/TagDrawer/TagDrawer";
 import Hero from "../../components/Hero/Hero";
 import axios from "axios";
-const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
 
 export default function HomePage({ tagDrawerOpen }) {
+  const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
   const [activeTag, setActiveTag] = useState("");
-  const [displayedPhotos, setDisplayedPhotos] = useState(null);
   const [photos, setPhotos] = useState(null);
+  const [tags, setTags] = useState(null);
+  const [displayedPhotos, setDisplayedPhotos] = useState(null);
 
-  const fetchData = async () => {
+  const fetchPhotosData = async () => {
     try {
       const { data } = await axios.get(
         `https://unit-3-project-c5faaab51857.herokuapp.com/photos?api_key=${API_KEY}`
       );
+
       setPhotos(data);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const fetchTagsData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://unit-3-project-c5faaab51857.herokuapp.com/tags?api_key=${API_KEY}`
+      );
+
+      setTags(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    fetchData();
+    fetchPhotosData();
+    fetchTagsData();
   }, []);
 
-  if (!photos) {
+  if (!photos || !tags) {
     return;
   }
 
@@ -50,7 +64,7 @@ export default function HomePage({ tagDrawerOpen }) {
       {tagDrawerOpen && (
         <aside className="tag-drawer-container">
           <TagDrawer
-            tags={Tags}
+            tags={tags}
             activeTag={activeTag}
             handleTagClick={handleTagClick}
           />

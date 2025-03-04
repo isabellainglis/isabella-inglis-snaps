@@ -1,14 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./HomePage.scss";
 import Gallery from "../../components/Gallery/Gallery";
 import Tags from "../../data/tags.json";
 import TagDrawer from "../../components/TagDrawer/TagDrawer";
 import Hero from "../../components/Hero/Hero";
-import Photos from "../../data/photos.json";
+import axios from "axios";
+const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
 
 export default function HomePage({ tagDrawerOpen }) {
   const [activeTag, setActiveTag] = useState("");
-  const [displayedPhotos, setDisplayedPhotos] = useState(Photos);
+  const [displayedPhotos, setDisplayedPhotos] = useState(null);
+  const [photos, setPhotos] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://unit-3-project-c5faaab51857.herokuapp.com/photos?api_key=${API_KEY}`
+      );
+      setPhotos(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (!photos) {
+    return;
+  }
 
   const handleTagClick = (tag) => {
     activeTag !== tag ? setActiveTag(tag) : setActiveTag("");
@@ -16,7 +37,7 @@ export default function HomePage({ tagDrawerOpen }) {
     setDisplayedPhotos(filteredPhotos);
   };
 
-  const filteredPhotos = Photos.filter((photo) => {
+  const filteredPhotos = photos.filter((photo) => {
     if (!activeTag) {
       return photo;
     } else {

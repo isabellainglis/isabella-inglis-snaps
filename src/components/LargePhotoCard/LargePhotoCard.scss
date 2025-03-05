@@ -1,7 +1,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.photo-card {
+.large-photo-card {
   width: 25rem;
   border: $brand-secondary-border 1px solid;
   border-radius: 0.5rem;
@@ -28,22 +28,6 @@
     @include tablet-and-above {
       border-top-left-radius: 0.75rem;
       border-top-right-radius: 0.75rem;
-    }
-  }
-
-  &__photographer {
-    font-family: Outfit;
-    font-size: 0.75rem;
-    text-align: right;
-    background-color: $brand-secondary-background;
-    position: absolute;
-    border-top-left-radius: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    border-bottom: $brand-secondary-border 1px solid;
-    color: black;
-
-    @include tablet-and-above {
-      border-top-left-radius: 0.75rem;
     }
   }
 

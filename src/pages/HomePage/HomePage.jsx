@@ -5,8 +5,7 @@ import TagDrawer from "../../components/TagDrawer/TagDrawer";
 import Hero from "../../components/Hero/Hero";
 import axios from "axios";
 
-export default function HomePage({ tagDrawerOpen }) {
-  const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
+export default function HomePage({ tagDrawerOpen, API_KEY }) {
   const [activeTag, setActiveTag] = useState("");
   const [photos, setPhotos] = useState(null);
   const [tags, setTags] = useState(null);

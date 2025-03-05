@@ -9,6 +9,7 @@ import SinglePhotoPage from "./pages/SinglePhotoPage/SinglePhotoPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
+  const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
 
   return (
@@ -19,8 +20,11 @@ export default function App() {
       />
       <Routes>
         <Route path="/" element={<HomePage tagDrawerOpen={tagDrawerOpen} />} />
-        <Route path="/photo/:id" element={<SinglePhotoPage />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route
+          path="/photos/:id"
+          element={<SinglePhotoPage API_KEY={API_KEY} />}
+        />
+        <Route path="/*" element={<NotFoundPage API_KEY={API_KEY} />} />
       </Routes>
       <Footer />
     </BrowserRouter>

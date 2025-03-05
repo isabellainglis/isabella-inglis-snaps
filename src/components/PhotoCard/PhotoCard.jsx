@@ -8,8 +8,8 @@ export default function PhotoCard({ displayedPhotos }) {
     <>
       {displayedPhotos.map((photo) => {
         return (
-          <Link to={`/photos/${photo.id}`}>
-            <div className="photo-card" key={photo.id}>
+          <Link key={photo.id} to={`/photos/${photo.id}`}>
+            <div className="photo-card">
               <div className="photo-card__img-container">
                 <img
                   src={photo.photo}

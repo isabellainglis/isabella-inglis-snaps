@@ -4,6 +4,7 @@ import LargePhotoCard from "../../components/LargePhotoCard/LargePhotoCard";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Comments from "../../components/Comments/Comments";
 
 export default function SinglePhotoPage({ API_KEY }) {
   const [singlePhoto, setSinglePhoto] = useState(null);
@@ -44,7 +45,7 @@ export default function SinglePhotoPage({ API_KEY }) {
         </label>
         <button className="comments-form__submit-btn">Submit</button>
       </form>
-      <div className="single-photo-page__comments"></div>
+      <Comments id={id} API_KEY={API_KEY} />
     </div>
   );
 }

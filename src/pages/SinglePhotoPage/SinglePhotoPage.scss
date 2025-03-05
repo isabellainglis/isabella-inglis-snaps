@@ -2,10 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.comments-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &__comments-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
 }

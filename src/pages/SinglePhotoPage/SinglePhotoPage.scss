@@ -1,32 +1,29 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography";
-
-body {
-  font-family: "Outift";
-}
 
 .single-photo-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  max-width: 35rem;
-  margin: 0 auto;
+  font-family: Outfit;
+
+  @include desktop {
+    width: 75vw;
+    margin: 0 auto;
+  }
 
   &__comments-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1rem;
-
-    @include tablet-and-above {
-      width: 35rem;
-    }
   }
 
   &__form-label {
     padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
   }
 
   &__form-input {
@@ -41,6 +38,7 @@ body {
     @include text-input;
     height: 6rem;
     padding: 0.2rem;
+    resize: none;
 
     &--error {
       border: solid 1px #b10606;
@@ -54,6 +52,6 @@ body {
     background-color: $brand-primary-accent;
     border: none;
     color: $brand-secondary-text;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
   }
 }

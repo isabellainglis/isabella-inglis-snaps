@@ -43,23 +43,25 @@ export default function LargePhotoCard({ id, API_KEY }) {
           return <Tag tag={tag} key={uuidv4()} />;
         })}
         <div className="large-photo-card__info-container">
-          <div className="large-photo-card__likes">
-            <img
-              className="large-photo-card__like-btn"
-              src={likeBtn}
-              alt="Like button"
-            />{" "}
-            <div className="large-photo-card__like-count">
-              {singlePhoto.likes} likes
+          <div className="large-photo-card__info-container-left">
+            <div className="large-photo-card__likes">
+              <img
+                className="large-photo-card__like-btn"
+                src={likeBtn}
+                alt="Like button"
+              />{" "}
+              <div className="large-photo-card__like-count">
+                {singlePhoto.likes} likes
+              </div>
             </div>
+            <p className="large-photo-card__photographer">
+              Photo by {singlePhoto.photographer}
+            </p>
           </div>
           <div className="large-photo-card__date">
             {new Date(singlePhoto.timestamp).toLocaleDateString()}
           </div>
         </div>
-        <p className="large-photo-card__photographer">
-          Photo by {singlePhoto.photographer}
-        </p>
       </div>
     </div>
   );

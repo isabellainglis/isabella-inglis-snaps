@@ -3,8 +3,7 @@
 
 .large-photo-card {
   width: 100%;
-  min-width: 19.625rem;
-
+  min-width: 19rem;
   border: $brand-secondary-border 1px solid;
   border-radius: 0.8rem;
   margin: 0 auto;
@@ -12,8 +11,8 @@
 
   @include tablet-and-above {
     border-radius: 1rem;
-    margin: 0;
-    width: 70vw;
+    max-width: 59.6563rem;
+    margin: 0 1rem;
   }
 
   &__img-container {
@@ -49,6 +48,7 @@
 
   &__likes {
     display: flex;
+    align-items: center;
   }
 
   &__like-btn {
@@ -59,6 +59,30 @@
   &__info-container {
     display: flex;
     justify-content: space-between;
-    padding-top: 1rem;
+    padding: 1rem;
+  }
+
+  &__info-container-left {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-and-above {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 60%;
+    }
+  }
+
+  &__date {
+    align-self: center;
+  }
+
+  & .tag {
+    margin-right: 0.5rem;
+
+    @include tablet-and-above {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
   }
 }

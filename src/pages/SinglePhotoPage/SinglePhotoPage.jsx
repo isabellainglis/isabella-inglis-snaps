@@ -54,12 +54,13 @@ export default function SinglePhotoPage({ API_KEY }) {
 
     if (name.length < 1) {
       setIsNameValid(false);
-      setErrorMessage("Please fill out your name");
+      setErrorMessage("Please fill out all comment fields");
+      return;
     }
 
     if (comment.length < 1) {
       setIsCommentValid(false);
-      setErrorMessage("Please fill out the comment field");
+      setErrorMessage("Please fill out all comment field");
       return;
     }
 
@@ -82,34 +83,39 @@ export default function SinglePhotoPage({ API_KEY }) {
   return (
     <div className="single-photo-page">
       <LargePhotoCard id={id} API_KEY={API_KEY} />
-      <form
-        className="single-photo-page__comments-form"
-        onSubmit={handleFormSubmit}
-      >
-        <label className="single-photo-page__form-label">
-          Name
-          <input
-            className={`single-photo-page__form-input ${
-              !isNameValid ? "single-photo-page__form-input--error" : ""
-            }`}
-            type="text"
-            name="name"
-            onChange={handleInputChange}
-          />
-        </label>
-        <label className="single-photo-page__form-label">
-          Comment
-          <textarea
-            className={`single-photo-page__form-input-comment ${
-              !isCommentValid ? "single-photo-page__form-input--error" : ""
-            }`}
-            type="text"
-            name="comment"
-            onChange={handleInputChange}
-          />
-        </label>
-        <button className="single-photo-page__submit-btn">Submit</button>
-      </form>
+      <div>
+        <form
+          className="single-photo-page__comments-form"
+          onSubmit={handleFormSubmit}
+        >
+          <label className="single-photo-page__form-label">
+            Name
+            <input
+              className={`single-photo-page__form-input ${
+                !isNameValid ? "single-photo-page__form-input--error" : ""
+              }`}
+              type="text"
+              name="name"
+              onChange={handleInputChange}
+            />
+          </label>
+          <label className="single-photo-page__form-label">
+            Comment
+            <textarea
+              className={`single-photo-page__form-input-comment ${
+                !isCommentValid
+                  ? "single-photo-page__form-input-comment--error"
+                  : ""
+              }`}
+              type="text"
+              name="comment"
+              onChange={handleInputChange}
+            />
+          </label>
+          <button className="single-photo-page__submit-btn">Submit</button>
+          {errorMessage ? errorMessage : ""}
+        </form>
+      </div>
       <Comments comments={comments} />
     </div>
   );

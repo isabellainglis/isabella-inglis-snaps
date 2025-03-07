@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .photo-card {
-  width: 45%;
+  width: 70vw;
   min-width: 16.7rem;
   max-width: 400px;
   border: $brand-secondary-border 1px solid;
@@ -13,6 +13,7 @@
   @include tablet-and-above {
     border-radius: 0.75rem;
     margin: 0;
+    width: 45%;
   }
 
   &__img-container {

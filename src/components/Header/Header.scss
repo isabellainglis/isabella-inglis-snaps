@@ -61,4 +61,15 @@
       width: 50vw;
     }
   }
+
+  &__home {
+    display: flex;
+    align-items: center;
+  }
+
+  &__home-btn {
+    color: $brand-primary-accent;
+    font-family: Outfit;
+    margin-left: 0.2rem;
+  }
 }

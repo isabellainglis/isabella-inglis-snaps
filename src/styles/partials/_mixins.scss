@@ -22,3 +22,15 @@
     font-size: 46px;
   }
 }
+
+@mixin text-input {
+  margin-top: 1rem;
+  width: 90vw;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid $brand-secondary-border;
+}
+
+@mixin comment-border {
+  border-top: 1px solid $brand-secondary-border;
+}

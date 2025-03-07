@@ -1,8 +1,20 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
 .comments {
+  margin: 0.5rem;
+
   &__comment-container {
-    margin: 1rem;
+    margin-top: 1rem;
   }
+
   &__comment-info-wrapper {
     display: flex;
+    justify-content: space-between;
+    color: $brand-primary-accent;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    @include comment-border;
   }
 }

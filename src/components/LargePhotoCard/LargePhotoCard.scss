@@ -2,15 +2,18 @@
 @use "../../styles/partials/mixins" as *;
 
 .large-photo-card {
-  width: 25rem;
+  width: 100%;
+  min-width: 19.625rem;
+
   border: $brand-secondary-border 1px solid;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   margin: 0 auto;
   margin-bottom: 1rem;
 
   @include tablet-and-above {
-    border-radius: 0.75rem;
+    border-radius: 1rem;
     margin: 0;
+    width: 70vw;
   }
 
   &__img-container {
@@ -20,27 +23,42 @@
   }
 
   &__img {
-    width: 25rem;
-    height: 17rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    width: 100%;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
 
     @include tablet-and-above {
-      border-top-left-radius: 0.75rem;
-      border-top-right-radius: 0.75rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
     }
   }
 
   &__footer {
     background-color: $brand-secondary-background;
-    padding: 0.6rem;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    padding: 1rem 0.6rem 0.4rem;
+    padding-left: 1rem;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
 
     @include tablet-and-above {
       padding: 0.8rem;
-      border-bottom-left-radius: 0.75rem;
-      border-bottom-right-radius: 0.75rem;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
     }
+  }
+
+  &__likes {
+    display: flex;
+  }
+
+  &__like-btn {
+    width: 13px;
+    margin-right: 0.3rem;
+  }
+
+  &__info-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
   }
 }

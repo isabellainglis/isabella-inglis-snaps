@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import Tag from "../Tag/Tag";
-import "./PhotoCard.scss";
+import "./PhotoCards.scss";
 import { v4 as uuidv4 } from "uuid";
 
-export default function PhotoCard({ displayedPhotos }) {
+export default function PhotoCards({ displayedPhotos }) {
   return (
     <>
       {displayedPhotos.map((photo) => {
         return (
-          <Link key={photo.id} to={`/photos/${photo.id}`}>
-            <div className="photo-card">
+          <div className="photo-card" key={photo.id}>
+            <Link to={`/photos/${photo.id}`}>
               <div className="photo-card__img-container">
                 <img
                   src={photo.photo}
@@ -26,8 +26,8 @@ export default function PhotoCard({ displayedPhotos }) {
                   return <Tag tag={tag} key={uuidv4()} />;
                 })}
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         );
       })}
     </>

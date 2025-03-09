@@ -11,7 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 export default function App() {
   const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   return (
     <BrowserRouter>

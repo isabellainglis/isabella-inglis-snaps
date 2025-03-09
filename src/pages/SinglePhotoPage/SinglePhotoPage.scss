@@ -1,0 +1,58 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.single-photo-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  font-family: Outfit;
+
+  @include desktop {
+    width: 75vw;
+    margin: 0 auto;
+  }
+
+  &__comments-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  &__form-label {
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__form-input {
+    @include text-input;
+
+    &--error {
+      border: solid 1px #b10606;
+    }
+  }
+
+  &__form-input-comment {
+    @include text-input;
+    height: 6rem;
+    padding: 0.2rem;
+    resize: none;
+    font-family: Arial;
+
+    &--error {
+      border: solid 1px #b10606;
+    }
+  }
+
+  &__submit-btn {
+    align-self: flex-end;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    background-color: $brand-primary-accent;
+    border: none;
+    color: $brand-secondary-text;
+    margin-right: 1rem;
+  }
+}

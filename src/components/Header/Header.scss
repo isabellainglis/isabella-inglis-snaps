@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: center;
   }
 
   &__title {
@@ -60,5 +61,18 @@
     @include desktop {
       width: 50vw;
     }
+  }
+
+  &__home {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+
+  &__home-btn {
+    color: $brand-primary-accent;
+    font-family: Outfit;
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
   }
 }

@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+
+.error {
+  text-align: center;
+
+  &__heading {
+    margin-bottom: 0;
+
+    @include tablet-and-above {
+      font-size: 36px;
+    }
+  }
+
+  &__img {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &__message {
+    @include tablet-and-above {
+      font-size: 30px;
+    }
+  }
+}

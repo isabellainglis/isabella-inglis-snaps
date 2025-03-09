@@ -1,55 +1,48 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/HomePage";
 import "./app.scss";
 import "./styles/partials/_resets.scss";
 import Header from "./components/Header/Header";
-import Gallery from "./components/Gallery/Gallery";
-import Tags from "./data/tags.json";
-import Photos from "./data/photos.json";
-import TagDrawer from "./components/TagDrawer/TagDrawer";
-import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
+import SinglePhotoPage from "./pages/SinglePhotoPage/SinglePhotoPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
+  const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
-  const [activeTag, setActiveTag] = useState("");
-  const [displayedPhotos, setDisplayedPhotos] = useState(Photos);
-
-  const handleTagClick = (tag) => {
-    activeTag !== tag ? setActiveTag(tag) : setActiveTag("");
-
-    setDisplayedPhotos(filteredPhotos);
-  };
-
-  const filteredPhotos = Photos.filter((photo) => {
-    if (!activeTag) {
-      return photo;
-    } else {
-      return photo.tags.includes(activeTag);
-    }
-  });
+  const [error, setError] = useState(null);
 
   return (
-    <>
+    <BrowserRouter>
       <Header
         tagDrawerOpen={tagDrawerOpen}
         setTagDrawerOpen={setTagDrawerOpen}
       />
-      <main className="main-wrapper">
-        {tagDrawerOpen && (
-          <aside className="tag-drawer-container">
-            <TagDrawer
-              tags={Tags}
-              activeTag={activeTag}
-              handleTagClick={handleTagClick}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              tagDrawerOpen={tagDrawerOpen}
+              error={error}
+              setError={setError}
             />
-          </aside>
-        )}
-        <section className="main-content-container">
-          <Hero />
-          <Gallery displayedPhotos={filteredPhotos} />
-        </section>
-      </main>
+          }
+        />
+        <Route
+          path="/photos/:id"
+          element={
+            <SinglePhotoPage
+              API_KEY={API_KEY}
+              error={error}
+              setError={setError}
+            />
+          }
+        />
+        <Route path="/*" element={<NotFoundPage API_KEY={API_KEY} />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }

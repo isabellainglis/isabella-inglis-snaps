@@ -3,7 +3,7 @@ import PhotoCards from "../PhotoCards/PhotoCards";
 import axios from "axios";
 import "./Gallery.scss";
 
-export default function Gallery({ API_KEY, activeTag }) {
+export default function Gallery({ API_KEY, activeTag, error, setError }) {
   const [photos, setPhotos] = useState(null);
 
   const fetchPhotosData = async () => {
@@ -14,6 +14,7 @@ export default function Gallery({ API_KEY, activeTag }) {
 
       setPhotos(data);
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   };
@@ -21,6 +22,10 @@ export default function Gallery({ API_KEY, activeTag }) {
   useEffect(() => {
     fetchPhotosData();
   }, []);
+
+  if (error) {
+    return <h2 className="error-msg">Something went wrong</h2>;
+  }
 
   if (!photos) {
     return <p className="loading">Loading...</p>;

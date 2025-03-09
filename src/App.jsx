@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 export default function App() {
   const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
   const [tagDrawerOpen, setTagDrawerOpen] = useState(false);
+  const [error, setError] = useState(null);
 
   return (
     <BrowserRouter>
@@ -19,10 +20,25 @@ export default function App() {
         setTagDrawerOpen={setTagDrawerOpen}
       />
       <Routes>
-        <Route path="/" element={<HomePage tagDrawerOpen={tagDrawerOpen} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              tagDrawerOpen={tagDrawerOpen}
+              error={error}
+              setError={setError}
+            />
+          }
+        />
         <Route
           path="/photos/:id"
-          element={<SinglePhotoPage API_KEY={API_KEY} />}
+          element={
+            <SinglePhotoPage
+              API_KEY={API_KEY}
+              error={error}
+              setError={setError}
+            />
+          }
         />
         <Route path="/*" element={<NotFoundPage API_KEY={API_KEY} />} />
       </Routes>

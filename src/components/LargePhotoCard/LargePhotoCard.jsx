@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
-export default function LargePhotoCard({ id, API_KEY }) {
+export default function LargePhotoCard({ id, API_KEY, error, setError }) {
   const [singlePhoto, setSinglePhoto] = useState(null);
 
   const fetchSinglePhoto = async (id) => {
@@ -16,6 +16,7 @@ export default function LargePhotoCard({ id, API_KEY }) {
 
       setSinglePhoto(data);
     } catch (error) {
+      setError(true);
       console.log("Error:", error);
     }
   };
@@ -23,6 +24,10 @@ export default function LargePhotoCard({ id, API_KEY }) {
   useEffect(() => {
     fetchSinglePhoto(id);
   }, [id]);
+
+  if (error) {
+    return <h2 className="error-msg">Something went wrong</h2>;
+  }
 
   if (!singlePhoto) {
     return;

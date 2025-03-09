@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Comments from "../../components/Comments/Comments";
 
-export default function SinglePhotoPage({ API_KEY }) {
+export default function SinglePhotoPage({ API_KEY, error, setError }) {
   const [comments, setComments] = useState(null);
   const [formFields, setFormFields] = useState({
     name: "",
@@ -29,6 +29,7 @@ export default function SinglePhotoPage({ API_KEY }) {
 
       setComments(sortedData);
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   };
@@ -36,6 +37,10 @@ export default function SinglePhotoPage({ API_KEY }) {
   useEffect(() => {
     fetchComments();
   }, []);
+
+  if (error) {
+    return <h2 className="error-msg">Something went wrong</h2>;
+  }
 
   if (!comments) {
     return <p className="loading">Loading...</p>;
@@ -75,6 +80,7 @@ export default function SinglePhotoPage({ API_KEY }) {
         formFields
       );
     } catch (error) {
+      setError(true);
       console.log(error);
     }
 
@@ -90,7 +96,12 @@ export default function SinglePhotoPage({ API_KEY }) {
 
   return (
     <div className="single-photo-page">
-      <LargePhotoCard id={id} API_KEY={API_KEY} />
+      <LargePhotoCard
+        id={id}
+        API_KEY={API_KEY}
+        error={error}
+        setError={setError}
+      />
       <div>
         <form
           className="single-photo-page__comments-form"

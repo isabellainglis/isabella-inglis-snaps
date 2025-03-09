@@ -4,7 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function TagDrawer({ API_KEY, activeTag, handleTagClick }) {
+export default function TagDrawer({
+  API_KEY,
+  activeTag,
+  handleTagClick,
+  error,
+  setError,
+}) {
   const [tags, setTags] = useState(null);
 
   const fetchTagsData = async () => {
@@ -15,6 +21,7 @@ export default function TagDrawer({ API_KEY, activeTag, handleTagClick }) {
 
       setTags(data);
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   };
@@ -22,6 +29,10 @@ export default function TagDrawer({ API_KEY, activeTag, handleTagClick }) {
   useEffect(() => {
     fetchTagsData();
   }, []);
+
+  if (error) {
+    return <h2 className="error-msg">Something went wrong</h2>;
+  }
 
   if (!tags) {
     return <p className="loading">Loading...</p>;

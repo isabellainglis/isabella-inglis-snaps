@@ -38,7 +38,7 @@ export default function SinglePhotoPage({ API_KEY }) {
   }, []);
 
   if (!comments) {
-    return;
+    return <p className="loading">Loading...</p>;
   }
 
   const handleInputChange = (e) => {
@@ -52,15 +52,20 @@ export default function SinglePhotoPage({ API_KEY }) {
     const name = e.target.name.value;
     const comment = e.target.comment.value;
 
-    if (name.length < 1) {
+    if (name.length < 1 && comment.length < 1) {
       setIsNameValid(false);
+      setIsCommentValid(false);
       setErrorMessage("Please fill out all comment fields");
       return;
-    }
-
-    if (comment.length < 1) {
+    } else if (comment.length < 1) {
       setIsCommentValid(false);
-      setErrorMessage("Please fill out all comment field");
+      setIsNameValid(true);
+      setErrorMessage("Please fill out comment field");
+      return;
+    } else if (name.length < 1) {
+      setIsNameValid(false);
+      setIsCommentValid(true);
+      setErrorMessage("Please fill out name field");
       return;
     }
 
@@ -72,6 +77,9 @@ export default function SinglePhotoPage({ API_KEY }) {
     } catch (error) {
       console.log(error);
     }
+
+    e.target.name.value = "";
+    e.target.comment.value = "";
 
     setFormFields("");
     fetchComments();

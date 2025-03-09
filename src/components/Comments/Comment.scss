@@ -5,6 +5,11 @@
   margin: 0.5rem;
   width: 100%;
   max-width: 60.4125rem;
+  font-size: 1rem;
+
+  @include tablet-and-above {
+    font-size: 1.1rem;
+  }
 
   &__comment-container {
     margin-top: 1rem;
@@ -17,6 +22,11 @@
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     padding-top: 1rem;
+    font-size: 0.75rem;
     @include comment-border;
+
+    @include tablet-and-above {
+      font-size: 0.8rem;
+    }
   }
 }

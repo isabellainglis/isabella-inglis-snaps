@@ -1,13 +1,10 @@
 import "./Header.scss";
-// import filterIcon from "../../assets/icons/Filter.svg";
 import arrowIcon from "../../assets/icons/Arrow.svg";
 import { Link, useLocation } from "react-router-dom";
 import FilterSvg from "../FilterSvg/FilterSvg";
 
 export default function Header({ tagDrawerOpen, setTagDrawerOpen }) {
   const location = useLocation();
-
-  // if location.pathname = "/" ?
 
   return (
     <header className="header">

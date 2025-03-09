@@ -2,9 +2,30 @@ import Tag from "../Tag/Tag";
 import "./TagDrawer.scss";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
-export default function TagDrawer({ tags, activeTag, handleTagClick }) {
-  const API_KEY = "cff359d9-80fb-42e0-b9c9-1e1f641007f4";
+export default function TagDrawer({ API_KEY, activeTag, handleTagClick }) {
+  const [tags, setTags] = useState(null);
+
+  const fetchTagsData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://unit-3-project-c5faaab51857.herokuapp.com/tags?api_key=${API_KEY}`
+      );
+
+      setTags(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTagsData();
+  }, []);
+
+  if (!tags) {
+    return <p className="loading">Loading...</p>;
+  }
 
   return (
     <section className="tag-drawer">

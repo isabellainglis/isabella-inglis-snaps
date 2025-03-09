@@ -6,13 +6,12 @@
   min-width: 19rem;
   border: $brand-secondary-border 1px solid;
   border-radius: 0.8rem;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
 
   @include tablet-and-above {
     border-radius: 1rem;
     max-width: 59.6563rem;
-    margin: 0 1rem;
+    margin: 1.5rem 1rem;
   }
 
   &__img-container {

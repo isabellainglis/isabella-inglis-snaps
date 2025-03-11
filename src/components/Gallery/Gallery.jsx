@@ -3,7 +3,7 @@ import PhotoCards from "../PhotoCards/PhotoCards";
 import axios from "axios";
 import "./Gallery.scss";
 
-export default function Gallery({ API_KEY, activeTag, error, setError }) {
+export default function Gallery({ activeTag, error, setError }) {
   const [photos, setPhotos] = useState(null);
 
   const fetchPhotosData = async () => {

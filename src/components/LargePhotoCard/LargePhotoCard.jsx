@@ -5,7 +5,7 @@ import Tag from "../Tag/Tag";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 
-export default function LargePhotoCard({ id, API_KEY, error, setError }) {
+export default function LargePhotoCard({ id, error, setError }) {
   const [singlePhoto, setSinglePhoto] = useState(null);
 
   const fetchSinglePhoto = async (id) => {

@@ -5,7 +5,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function TagDrawer({
-  API_KEY,
   activeTag,
   handleTagClick,
   error,
@@ -16,7 +15,7 @@ export default function TagDrawer({
   const fetchTagsData = async () => {
     try {
       const { data } = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/tags?api_key=${API_KEY}`
+        `${import.meta.env.VITE_API_BASE_URL}/tags`
       );
 
       setTags(data);

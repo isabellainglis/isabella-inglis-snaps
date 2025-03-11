@@ -4,7 +4,7 @@ import TagDrawer from "../../components/TagDrawer/TagDrawer";
 import Hero from "../../components/Hero/Hero";
 import { useState } from "react";
 
-export default function HomePage({ tagDrawerOpen, API_KEY, error, setError }) {
+export default function HomePage({ tagDrawerOpen, error, setError }) {
   const [activeTag, setActiveTag] = useState("");
 
   setError(false);
@@ -18,7 +18,6 @@ export default function HomePage({ tagDrawerOpen, API_KEY, error, setError }) {
       {tagDrawerOpen && (
         <aside className="tag-drawer-container">
           <TagDrawer
-            API_KEY={API_KEY}
             activeTag={activeTag}
             handleTagClick={handleTagClick}
             error={error}
@@ -28,12 +27,7 @@ export default function HomePage({ tagDrawerOpen, API_KEY, error, setError }) {
       )}
       <section className="main-content-container">
         <Hero />
-        <Gallery
-          API_KEY={API_KEY}
-          activeTag={activeTag}
-          error={error}
-          setError={setError}
-        />
+        <Gallery activeTag={activeTag} error={error} setError={setError} />
       </section>
     </main>
   );

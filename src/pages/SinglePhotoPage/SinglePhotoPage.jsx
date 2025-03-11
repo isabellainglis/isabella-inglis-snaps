@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Comments from "../../components/Comments/Comments";
 
-export default function SinglePhotoPage({ API_KEY, error, setError }) {
+export default function SinglePhotoPage({ error, setError }) {
   const [comments, setComments] = useState(null);
   const [formFields, setFormFields] = useState({
     name: "",
@@ -76,7 +76,7 @@ export default function SinglePhotoPage({ API_KEY, error, setError }) {
 
     try {
       await axios.post(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}/comments?api_key=${API_KEY}`,
+        `${import.meta.env.VITE_API_BASE_URL}/photos/${id}/comments`,
         formFields
       );
     } catch (error) {
@@ -96,12 +96,7 @@ export default function SinglePhotoPage({ API_KEY, error, setError }) {
 
   return (
     <div className="single-photo-page">
-      <LargePhotoCard
-        id={id}
-        API_KEY={API_KEY}
-        error={error}
-        setError={setError}
-      />
+      <LargePhotoCard id={id} error={error} setError={setError} />
       <div>
         <form
           className="single-photo-page__comments-form"

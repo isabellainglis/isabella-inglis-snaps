@@ -11,7 +11,7 @@ export default function LargePhotoCard({ id, API_KEY, error, setError }) {
   const fetchSinglePhoto = async (id) => {
     try {
       const { data } = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos/${id}?api_key=${API_KEY}`
+        `${import.meta.env.VITE_API_BASE_URL}/photos/${id}`
       );
 
       setSinglePhoto(data);

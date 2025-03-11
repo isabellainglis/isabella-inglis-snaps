@@ -9,7 +9,7 @@ export default function Gallery({ API_KEY, activeTag, error, setError }) {
   const fetchPhotosData = async () => {
     try {
       const { data } = await axios.get(
-        `https://unit-3-project-c5faaab51857.herokuapp.com/photos?api_key=${API_KEY}`
+        `${import.meta.env.VITE_API_BASE_URL}/photos`
       );
 
       setPhotos(data);

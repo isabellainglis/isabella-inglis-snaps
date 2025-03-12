@@ -24,7 +24,11 @@ export default function Gallery({ activeTag, error, setError }) {
   }, []);
 
   if (error) {
-    return <h2 className="error-msg">Something went wrong</h2>;
+    return (
+      <h2 className="error-msg">
+        Unable to load photos. Please try again shortly
+      </h2>
+    );
   }
 
   if (!photos) {

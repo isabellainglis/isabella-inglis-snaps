@@ -14,9 +14,7 @@ export default function Header({ tagDrawerOpen, setTagDrawerOpen }) {
         </Link>
         {location.pathname === "/" ? (
           <button
-            onClick={() => {
-              setTagDrawerOpen(!tagDrawerOpen);
-            }}
+            onClick={() => setTagDrawerOpen(!tagDrawerOpen)}
             className={`header__filter-btn ${
               tagDrawerOpen && "header__filter-btn--active"
             }`}

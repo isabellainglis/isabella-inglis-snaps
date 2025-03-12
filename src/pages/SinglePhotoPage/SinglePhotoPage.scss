@@ -48,11 +48,18 @@
 
   &__submit-btn {
     align-self: flex-end;
-    padding: 0.3rem 0.7rem;
-    border-radius: 5px;
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
     background-color: $brand-primary-accent;
     border: none;
     color: $brand-secondary-text;
-    margin-right: 1rem;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+
+    @include tablet-and-above {
+      font-size: 16px;
+      padding: 0.6rem 1.5rem;
+    }
   }
 }

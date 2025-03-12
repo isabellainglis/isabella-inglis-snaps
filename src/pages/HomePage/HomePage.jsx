@@ -7,8 +7,6 @@ import { useState } from "react";
 export default function HomePage({ tagDrawerOpen, error, setError }) {
   const [activeTag, setActiveTag] = useState("");
 
-  setError(false);
-
   const handleTagClick = (selectedTag) => {
     activeTag !== selectedTag ? setActiveTag(selectedTag) : setActiveTag("");
   };

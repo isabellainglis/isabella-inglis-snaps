@@ -26,7 +26,11 @@ export default function LargePhotoCard({ id, error, setError }) {
   }, [id]);
 
   if (error) {
-    return <h2 className="error-msg">Something went wrong</h2>;
+    return (
+      <h2 className="error-msg">
+        Unable to load photo. Please try again shortly
+      </h2>
+    );
   }
 
   if (!singlePhoto) {

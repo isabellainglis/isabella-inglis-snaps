@@ -87,7 +87,10 @@ export default function SinglePhotoPage({ error, setError }) {
     e.target.name.value = "";
     e.target.comment.value = "";
 
-    setFormFields("");
+    setFormFields({
+      name: "",
+      comment: "",
+    });
     fetchComments();
     setIsNameValid(true);
     setIsCommentValid(true);

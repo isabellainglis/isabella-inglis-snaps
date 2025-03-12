@@ -9,6 +9,7 @@
   margin: 0.2rem;
   border: 1px $brand-secondary-border solid;
   border-radius: 0.5rem;
+  cursor: pointer;
 
   @include tablet-and-above {
     padding: 0.6rem 0.75rem;

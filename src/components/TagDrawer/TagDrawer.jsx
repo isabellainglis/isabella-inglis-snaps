@@ -3,6 +3,7 @@ import "./TagDrawer.scss";
 import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import loader from "../../assets/icons/loader.gif";
 
 export default function TagDrawer({
   activeTag,
@@ -38,7 +39,7 @@ export default function TagDrawer({
   }
 
   if (!tags) {
-    return <p className="loading">Loading...</p>;
+    return <img className="loading" src={loader} alt="Spinning loader" />;
   }
 
   return (

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Comments from "../../components/Comments/Comments";
+import loader from "../../assets/icons/loader.gif";
 
 export default function SinglePhotoPage({ error, setError }) {
   const [comments, setComments] = useState(null);
@@ -39,11 +40,15 @@ export default function SinglePhotoPage({ error, setError }) {
   }, []);
 
   if (error) {
-    return <h2 className="error-msg">Something went wrong</h2>;
+    return (
+      <h2 className="error-msg">
+        Unable to load comments. Please try again shortly.
+      </h2>
+    );
   }
 
   if (!comments) {
-    return <p className="loading">Loading...</p>;
+    return <img className="loading" src={loader} alt="Spinning loader" />;
   }
 
   const handleInputChange = (e) => {

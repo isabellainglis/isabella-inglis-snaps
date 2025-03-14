@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PhotoCards from "../PhotoCards/PhotoCards";
 import axios from "axios";
 import "./Gallery.scss";
+import loader from "../../assets/icons/loader.gif";
 
 export default function Gallery({ activeTag, error, setError }) {
   const [photos, setPhotos] = useState(null);
@@ -32,7 +33,7 @@ export default function Gallery({ activeTag, error, setError }) {
   }
 
   if (!photos) {
-    return <p className="loading">Loading...</p>;
+    return <img className="loading" src={loader} alt="Spinning loader" />;
   }
 
   const filteredPhotos = photos.filter((photo) => {

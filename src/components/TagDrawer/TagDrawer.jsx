@@ -14,6 +14,7 @@ export default function TagDrawer({
   const [tags, setTags] = useState(null);
 
   const fetchTagsData = async () => {
+    setError(false);
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/tags`

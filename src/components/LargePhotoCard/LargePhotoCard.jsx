@@ -9,6 +9,7 @@ export default function LargePhotoCard({ id, error, setError }) {
   const [singlePhoto, setSinglePhoto] = useState(null);
 
   const fetchSinglePhoto = async (id) => {
+    setError(false);
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/photos/${id}`
@@ -41,7 +42,9 @@ export default function LargePhotoCard({ id, error, setError }) {
     <div className="large-photo-card" key={singlePhoto.id}>
       <div className="large-photo-card__img-container">
         <img
-          src={singlePhoto.photo}
+          src={`${import.meta.env.VITE_API_BASE_URL}/images/${
+            singlePhoto.photo
+          }`}
           alt={singlePhoto.photoDescription}
           className="large-photo-card__img"
         />

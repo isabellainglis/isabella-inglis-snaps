@@ -41,9 +41,7 @@ export default function SinglePhotoPage({ error, setError }) {
 
   if (error) {
     return (
-      <h2 className="error-msg">
-        Unable to load comments. Please try again shortly.
-      </h2>
+      <h2 className="error-msg">Unable to load. Please try again shortly.</h2>
     );
   }
 

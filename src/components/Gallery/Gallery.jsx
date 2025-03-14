@@ -8,6 +8,7 @@ export default function Gallery({ activeTag, error, setError }) {
   const [photos, setPhotos] = useState(null);
 
   const fetchPhotosData = async () => {
+    setError(false);
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/photos`

@@ -12,7 +12,9 @@ export default function PhotoCards({ displayedPhotos }) {
             <Link to={`/photos/${photo.id}`}>
               <div className="photo-card__img-container">
                 <img
-                  src={photo.photo}
+                  src={`${import.meta.env.VITE_API_BASE_URL}/images/${
+                    photo.photo
+                  }`}
                   alt={photo.photoDescription}
                   className="photo-card__img"
                 />

@@ -7,6 +7,12 @@ It will be your job to create a functioning and responsive app prototype from th
 
 ## Installation
 
-Install my-project with npm
+Clone this repository and the separate server repo [here](https://github.com/isabellainglis/isabella-inglis-snaps-api)
 
-$ npm install
+Install all the npm packages for both repos:
+
+```bash
+  npm install
+```
+
+Run npm start in both terminals
